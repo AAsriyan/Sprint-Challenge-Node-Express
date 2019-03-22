@@ -83,4 +83,30 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+router.put("/:id", async (req, res) => {
+  try {
+    const { project_id, notes, description } = req.body;
+    const { id } = req.params;
+
+    if (!project_id) {
+      res.status(404).json({
+        message: `The project does not exist`
+      });
+    }
+
+    if (!notes || !description) {
+      res.status(400).json({
+        message: "Please provide notes and a description for this action"
+      });
+    } else {
+      const action = await Actions.update(id, req.body);
+      res.status(200).json(action);
+    }
+  } catch (error) {
+    res.status({
+      error: `The action information could not be updated. ${error}`
+    });
+  }
+});
+
 module.exports = router;
