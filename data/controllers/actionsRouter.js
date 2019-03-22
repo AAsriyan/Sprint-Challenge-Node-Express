@@ -18,13 +18,11 @@ router.get("/:id", async (req, res) => {
   try {
     const action = await Actions.get(req.params.id);
 
-    if (!action) {
-      res.status(404).json({
-        message: `The action with the id #${req.params.id} does not exist.`
-      });
-    } else {
-      res.status(200).json(action);
-    }
+    action
+      ? res.status(200).json(action)
+      : res.status(404).json({
+          message: `The action with the id #${req.params.id} does not exist.`
+        });
   } catch (error) {
     res.status(500).json({
       error: `The action information could not be found. ${error}`
