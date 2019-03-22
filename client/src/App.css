@@ -1,33 +1,58 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+h1 {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+a {
+  text-decoration: none;
+  color: rgb(247, 95, 8);
+  max-width: 400px;
+  width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.project-list {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
 }
 
-.App-link {
-  color: #61dafb;
+.project-card {
+  max-width: 400px;
+  width: 100%;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  border: solid 3px rgb(6, 202, 236);
+  border-radius: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.project-card h2 {
+  text-align: center;
+}
+
+.project-actions {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.actions {
+  max-width: 400px;
+  width: 100%;
+  margin: 20px;
+  border: solid 3px rgb(6, 202, 236);
+  border-radius: 10px;
+}
+
+.actions h3 {
+  text-align: center;
 }

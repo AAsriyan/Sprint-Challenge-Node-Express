@@ -2,7 +2,7 @@ import React from "react";
 
 const ProjectCard = props => {
   return (
-    <div>
+    <div className="project-card">
       <h2>{props.project.name}</h2>
     </div>
   );

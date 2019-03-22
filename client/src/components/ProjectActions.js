@@ -2,9 +2,15 @@ import React from "react";
 
 const ProjectActions = props => {
   return (
-    <div>
-      <p>{props.action.notes}</p>
-      <p>{props.action.description}</p>
+    <div className="actions">
+      <h3>Action</h3>
+      <p>
+        <b>Description: </b>
+        {props.action.description}
+      </p>
+      <p>
+        <b>Notes: </b> {props.action.notes}
+      </p>
     </div>
   );
 };

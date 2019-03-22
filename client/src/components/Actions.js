@@ -42,7 +42,7 @@ export class Actions extends Component {
     }
 
     return (
-      <div>
+      <div className="project-actions">
         <ProjectCard project={this.state.project} />
         {this.state.actions.map(action => (
           <ProjectActions key={action.id} action={action} />

@@ -22,7 +22,7 @@ export class ProjectList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="project-list">
         {this.state.projects.map(project => (
           <ProjectDetails key={project.id} project={project} />
         ))}
