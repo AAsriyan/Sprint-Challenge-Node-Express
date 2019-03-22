@@ -6,12 +6,6 @@ const Actions = require("../helpers/actionModel.js");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  // Projects.get()
-  //   .then(projects => res.status(200).json(projects))
-  //   .catch(err => res.status(500).json({ err }));
-
-  // Async await not working for some reason??
-
   try {
     const projects = await Projects.get();
 
@@ -25,13 +19,11 @@ router.get("/:id", async (req, res) => {
   try {
     const project = await Projects.get(req.params.id);
 
-    if (!project) {
-      res.status(404).json({
-        message: `The project with the id #${req.params.id} does not exist.`
-      });
-    } else {
-      res.status(200).json(project);
-    }
+    project
+      ? res.status(200).json(project)
+      : res.status(404).json({
+          message: `The project with the id #${req.params.id} does not exist.`
+        });
   } catch (error) {
     res.status(500).json({
       error: `The project information could not be found. ${error}`
@@ -49,9 +41,9 @@ router.get("/:id/actions", async (req, res) => {
       res.status(404).json({
         message: `The project with the id #${req.params.id} does not exist`
       });
+    } else {
+      res.status(200).json(allProjectActions);
     }
-
-    res.status(200).json(allProjectActions);
   } catch (error) {
     res.status(500).json({
       error: "Could not retrieve the project's actions"
