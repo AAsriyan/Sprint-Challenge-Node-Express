@@ -1,6 +1,7 @@
 const express = require("express");
 
 const Projects = require("../helpers/projectModel.js");
+const Actions = require("../helpers/actionModel.js");
 
 const router = express.Router();
 
@@ -57,9 +58,28 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
-  } catch (error) {}
+    const actions = await Projects.getProjectActions(req.params.id);
+    await actions.forEach(async action => {
+      await Actions.remove(action.id);
+    });
+    const count = await Projects.remove(req.params.id);
+
+    if (count > 0) {
+      res.status(200).json({
+        message: "The project has been deleted."
+      });
+    } else {
+      res.status(404).json({
+        message: `The project with the id #${req.params.id} could not be found`
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      error: "The project could not be removed."
+    });
+  }
 });
 
 module.exports = router;
