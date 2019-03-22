@@ -26,13 +26,23 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+A: Express is a Node.js module that is light weight and can connect additional middleware. I learned about Routing, Middlware, and Helpers this week.
+
 - [ ] Describe Middleware?
+
+A: Middlware adds extra features to your code before passing it along to another middleware or onto the application.
 
 - [ ] Describe a Resource?
 
+A: A resource is a piece of data that we want to manipulate when calling it through our API from our endpoints.
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+A: The API can return a status code with a message from the server to let them know what te issue was.
+
 - [ ] How can we partition our application into sub-applications?
+
+A: We can specify the routes in our server.js file and then import it from our router files in our controllers folder.
 
 ## Project Setup
 

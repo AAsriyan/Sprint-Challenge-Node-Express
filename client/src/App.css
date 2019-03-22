@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(247, 95, 8);
+  max-width: 400px;
+  width: 100%;
+}
+
+.project-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  max-width: 400px;
+  width: 100%;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  border: solid 3px rgb(6, 202, 236);
+  border-radius: 10px;
+}
+
+.project-card h2 {
+  text-align: center;
+}
+
+.project-actions {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.actions {
+  max-width: 400px;
+  width: 100%;
+  margin: 20px;
+  border: solid 3px rgb(6, 202, 236);
+  border-radius: 10px;
+}
+
+.actions h3 {
+  text-align: center;
+}
