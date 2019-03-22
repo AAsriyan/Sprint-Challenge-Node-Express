@@ -4,20 +4,14 @@ const Actions = require("../helpers/actionModel.js");
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  Actions.get()
-    .then(actions => res.status(200).json(actions))
-    .catch(err => res.status(500).json({ err }));
+router.get("/", async (req, res) => {
+  try {
+    const actions = await Actions.get();
 
-  // Async await not working for some reason??
-
-  // try {
-  //   const actions = await Actions.get(req.query);
-  //   console.log(actions);
-  //   res.status(200).json(actions);
-  // } catch (error) {
-  //   res.status(500).json({ error: `Error retrieving the projects.: ${error}` });
-  // }
+    res.status(200).json(actions);
+  } catch (error) {
+    res.status(500).json({ error: `Error retrieving the projects.: ${error}` });
+  }
 });
 
 router.get("/:id", async (req, res) => {
