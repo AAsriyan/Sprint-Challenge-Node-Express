@@ -10,9 +10,8 @@ export class ProjectList extends Component {
 
   componentDidMount = () => {
     axios
-      .get("http://localhost:5000/api/projects")
+      .get("https://aa-lambdaprojects.herokuapp.com/api/projects")
       .then(res => {
-        console.log(res.data);
         this.setState({ projects: res.data });
       })
       .catch(err => {

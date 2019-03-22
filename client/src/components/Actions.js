@@ -10,7 +10,6 @@ export class Actions extends Component {
   };
 
   componentDidMount = () => {
-    console.log(this.props.match.params.id);
     this.fetchProject(this.props.match.params.id);
     this.fetchActions(this.props.match.params.id);
   };
@@ -23,17 +22,19 @@ export class Actions extends Component {
   }
 
   fetchProject = id => {
-    axios.get(`http://localhost:5000/api/projects/${id}`).then(res => {
-      console.log(res.data);
-      this.setState({ project: res.data });
-    });
+    axios
+      .get(`https://aa-lambdaprojects.herokuapp.com/api/projects/${id}`)
+      .then(res => {
+        this.setState({ project: res.data });
+      });
   };
 
   fetchActions = id => {
-    axios.get(`http://localhost:5000/api/projects/${id}/actions`).then(res => {
-      console.log(res.data);
-      this.setState({ actions: res.data });
-    });
+    axios
+      .get(`https://aa-lambdaprojects.herokuapp.com/api/projects/${id}/actions`)
+      .then(res => {
+        this.setState({ actions: res.data });
+      });
   };
 
   render() {
